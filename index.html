@@ -14,6 +14,7 @@
     <!-- Include font awesome css files -->
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+
 </head>
 
 <body>
@@ -40,13 +41,16 @@
 
     <header class="jumbotron">
         <div class="container">
-            <div class="row row-header">
-                <div class="col-12 col-sm-6">
+            <div class="row row-header align-items-center">
+                <div class="col-12 col-sm-5">
                     <h1>Ristorante con Fusion</h1>
                     <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                 </div>
-                <div class="col-12 col-sm align-self center">
+                <div class="col-12 col-sm-4 align-self center">
                   <img src="img/logo.png" class="img-fluid">
+                </div>
+                <div class="col-12 col-sm-3">
+                  <a style="text-decoration: none;" href="#reservationForm"><button type="button" class="btn btn-block btn-warning">Reservation</button></a>
                 </div>
             </div>
         </div>
@@ -95,24 +99,28 @@
             <div class="col-12 col-sm-4 order-sm-last col-md-3">
                 <h3>Meet our Culinary Specialists</h3>
             </div>
-            <div class="media">
-                    <img class="d-flex mr-3 img-thumbnail align-self-center"
-                            src="img/alberto.png" alt="Alberto Somayya">
-                    <div class="media-body">
-                        <h2 class="mt-0">Alberto Somayya</h2>
-                        <h4>Executive Chef</h4>
-                        <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide
-                            International experience having worked closely with
-                            whos-who in the culinary world, he specializes in
-                            creating mouthwatering Indo-Italian fusion experiences.
-                            </p>
-                    </div>
+            <div class="col-12 col-sm order-sm col-md">
+              <div class="media">
+                      <img class="d-flex mr-3 img-thumbnail "
+                              src="img/alberto.png" alt="Alberto Somayya">
+                      <div class="media-body">
+                          <h2 class="mt-0">Alberto Somayya</h2>
+                          <h4>Executive Chef</h4>
+                          <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide
+                              International experience having worked closely with
+                              whos-who in the culinary world, he specializes in
+                              creating mouthwatering Indo-Italian fusion experiences.
+                              </p>
+                      </div>
                 </div>
+            </div>
         </div>
-        <div class="row row-content">
+        <!-- Task 1 -->
+        <!-- justify-content attribute center the row horizontally -->
+        <div class="row justify-content-center row-content ">
             <div class="col-12 col-sm-8">
-              <div class="card">
-                <div class="card-header text-light bg-warning ">
+              <div class="card ">
+                <div class=" card-header text-light bg-warning ">
                   <h3>Reserve a Table</h3>
                 </div>
                 <div class="card-body">
@@ -120,9 +128,10 @@
                   <h5 class="card-title">Special title treatment</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   -->
-                  <h5>Number of Guests</h5>
                   <form>
-                    <div class="form-group row">
+                    <div class="form-group row" id = "reservationForm">
+                      <label for="date" class="col-12 col-md-2 col-form-label">Number of Guests</label>
+
                       <div class="col">
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
@@ -176,16 +185,19 @@
                       <div class="col-12 col-md-5">
                         <input type="date" class="form-control" id="dateid" name="dateid" placeholder="Date">
                       </div>
-                      <div class="col-5 col-md-5">
+                      <div class="col-12 col-md-5">
                           <input type="time" class="form-control" id="timeid" name="timeid" placeholder="Time">
                       </div>
+
                     </div>
-
-
-                      <a href="#" class="btn btn-primary">Reserve</a>
+                    <div class="form-group row">
+                      <div class="col-12 col-md-2"></div>
+                      <div class="col-12 col-md-5 ">
+                        <a href="#" class="btn btn-primary ">Reserve</a>
+                      </div>
                     </div>
-                  </form>
-
+                  </div>
+                </form>
               </div>
             </div>
         </div>
