@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-
 <head>
     <title>Ristorante Con Fusion</title>
     <!-- Required meta tags always come first -->
@@ -16,7 +13,6 @@
     <!-- Include font awesome css files -->
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-
 </head>
 
 <body>
@@ -45,8 +41,6 @@
         </div>
     </nav>
 
-
-
     <!-- Set up the modal form -->
     <div id="loginModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg" role="content">
@@ -56,6 +50,7 @@
                 <h4 class="modal-title">Login </h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
+            <!-- Modal body -->
             <div class="modal-body">
                 <form>
                     <div class="form-row">
@@ -89,17 +84,134 @@
     <header class="jumbotron">
       <div class="container">
         <div class="row row-header align-items-center">
-          <div class="col-12 col-sm-5">
+          <div class="col-12 col-sm-4">
               <h1>Ristorante con Fusion</h1>
               <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
           </div>
           <div class="col-12 col-sm-4 align-self center">
             <img src="img/logo.png" class="img-fluid">
           </div>
-          <div class="col-12 col-sm-3">
+          <div class="col-12 col-sm-4">
+            <!--
             <a role="button" class="btn btn-block nav-link btn-warning"
-            data-toggle="tooltip" data-html="true"  title="Or Call us at  <br><strong>+852 12345678</strong>"
+            data-toggle="modal" data-html="true"  title="Or Call us at  <br><strong>+852 12345678</strong>"
             data-placement="bottom" href="#reserveform">Reserve Table</a>
+          -->
+            <!-- Button to open the Modal -->
+            <button type="button" class="btn btn-block btn-warning" data-toggle="modal" data-target="#exampleModal">
+              Reserve Table
+            </button>
+
+            <!-- The Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reserve a Table</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group row" id = "reservationModalForm">
+
+                        <label for="test" class="col-12 col-md-2 col-form-label">Number of Guests</label>
+
+                        <div class="col">
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="inlineRadios1">
+                              1
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="inlineRadios2">
+                              2
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                            <label class="form-check-label" for="inlineRadios3">
+                              3
+                            </label>
+                          </div>
+                        </div><div class="col">
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+                            <label class="form-check-label" for="inlineRadios4">
+                              4
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                            <label class="form-check-label" for="inlineRadios5">
+                              5
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
+                            <label class="form-check-label" for="inlineRadios6">
+                              6
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <label for="date" class="col-12 col-md-2 col-form-label">Section</label>
+                          <div class="col-12 col-md-4">
+                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                              <label class="btn btn-success active">
+                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Non-Smoking
+                              </label>
+                              <label class="btn btn-danger">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> Smoking
+                              </label>
+                            </div>
+                          </div>
+                        <div class="col-auto">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="date" class="col-12 col-md-2 col-form-label">Date and Time</label>
+                        <div class="col-12 col-md-5">
+                          <input type="date" class="form-control" id="dateid" name="dateid" placeholder="Date">
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <input type="time" class="form-control" id="timeid" name="timeid" placeholder="Time">
+                        </div>
+                      </div>
+                    </form>
+
+
+
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -222,6 +334,9 @@
         </div>
         <!-- Task 1 -->
         <!-- justify-content attribute center the row horizontally -->
+
+
+        <!--
         <div class="row justify-content-center row-content ">
             <div class="col-12 col-sm-8">
               <div class="card ">
@@ -229,10 +344,6 @@
                   <h3>Reserve a Table</h3>
                 </div>
                 <div class="card-body">
-                  <!--
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  -->
                   <form>
                     <div class="form-group row" id = "reservationForm">
                       <label for="date" class="col-12 col-md-2 col-form-label">Number of Guests</label>
@@ -285,6 +396,7 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="form-group row">
                       <label for="date" class="col-12 col-md-2 col-form-label">Date and Time</label>
                       <div class="col-12 col-md-5">
@@ -303,13 +415,17 @@
                     </div>
                   </div>
                 </form>
+
+
               </div>
             </div>
         </div>
+        -->
 
 
-            </div>
-        </div>
+      </div>
+    </div>
+
 
     <footer class="footer">
         <div class="container">
@@ -356,12 +472,6 @@
         </div>
     </footer>
     <!-- Added at the end of the page so the html will be displayed before the JS if the computer is slow. -->
-    <!-- jQuery script needed for the tooltip -->
-    <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-      });
-    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
