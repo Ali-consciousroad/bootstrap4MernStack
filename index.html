@@ -416,7 +416,6 @@
           modal1.style.display = "block";
         }
 
-
         // When the user clicks on (x), close the login modal
         closeLoginModal.onclick = function() {
           modal.style.display = "none";
@@ -429,18 +428,11 @@
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
-          if (event.target == modal) {
+          if (event.target == modal || event.target == modal1) {
             modal.style.display = "none";
+            modal1.style.display = "none";
           }
         }
-
-        window.onclick = function(event) {
-          if (event.target == modal1) {
-            modal.style.display = "none";
-          }
-        }
-
-
       </script>
 
       <!-- Add the JS code to activate the buttons -->
