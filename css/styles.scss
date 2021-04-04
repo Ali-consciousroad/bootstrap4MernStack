@@ -78,3 +78,25 @@ body{
     bottom: 0px;
     z-index: 1;
 }
+
+// Add class nesting to the modal (login and reservation modal)
+.modal {
+    .modal-header {
+        background:$background-dark;
+        color: floralwhite;
+
+        .close{
+            color:floralwhite;
+        }
+    }
+
+    .modal-body {
+        background:$background-pale;
+        color:black;
+        }
+    .modal-footer {
+        background:$background-pale;
+    }
+    }
+
+
