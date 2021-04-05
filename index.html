@@ -209,14 +209,6 @@
                         </div>
                       </div>
                     </div>
-
-                    <!-- Modal footer -->
-                    <!--
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" onclick="window.location='index.html';return false;">Close</button>
-                      <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                    -->
                   </div>
                 </div>
               </div>
@@ -399,78 +391,6 @@
       <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
       <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
       <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-      <!-- JS modal  -->
-      <script>
-        // Get the login modal
-        var modal = document.getElementById("loginModal");
-        // Get the reservation modal
-        var modal1 = document.getElementById("reservationModal");
-
-        // Get the button that opens the login modal
-        var btn = document.getElementById("myBtn");
-        // Get the button that opens the reservation modal
-        var btn1 = document.getElementById("myReserveBtn");
-
-        // Get the <span> element that closes the modal
-        var closeLoginModal = document.getElementsByClassName("close")[0];
-        var closeReserveModal = document.getElementsByClassName("close")[1];
-
-        // When the user clicks the button, open the modal
-        btn.onclick = function() {
-          modal.style.display = "block";
-        }
-
-        btn1.onclick = function() {
-          modal1.style.display = "block";
-        }
-
-        // When the user clicks on (x), close the login modal
-        closeLoginModal.onclick = function() {
-          modal.style.display = "none";
-        }
-
-        // Click on (x), close the reservation modal 
-        closeReserveModal.onclick = function() {
-          modal1.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal || event.target == modal1) {
-            modal.style.display = "none";
-            modal1.style.display = "none";
-          }
-        }
-      </script>
-
-      <!-- Add the JS code to activate the buttons -->
-      <script>
-        $(document).ready(function(){
-            $("#mycarousel").carousel( { interval: 2000 } );
-            /*
-            $("#carousel-pause").click(function(){
-
-                $("#mycarousel").carousel('pause');
-            });
-            $("#carousel-play").click(function(){
-                $("#mycarousel").carousel('cycle');
-            });
-            */
-            // Modify the JS code to display the pause and play icon on the same button.
-            $("#carouselButton").click(function(){
-                if ($("#carouselButton").children("span").hasClass('fa-pause')) {
-                    $("#mycarousel").carousel('pause');
-                    $("#carouselButton").children("span").removeClass('fa-pause');
-                    $("#carouselButton").children("span").addClass('fa-play');
-                }
-                else if ($("#carouselButton").children("span").hasClass('fa-play')){
-                    $("#mycarousel").carousel('cycle');
-                    $("#carouselButton").children("span").removeClass('fa-play');
-                    $("#carouselButton").children("span").addClass('fa-pause');
-                }
-            });
-        });
-      </script>
+      <script src="js/scripts.js"></script>
   </body>
 </html>
