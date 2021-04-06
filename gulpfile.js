@@ -4,7 +4,16 @@
 
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    // require the del node module
+    del = require('del'),
+    imagemin = require('gulp-imagemin'),
+    uglify = require('gulp-uglify'),
+    usemin = require('gulp-usemin'),
+    rev = require('gulp-rev'),
+    cleanCss = require('gulp-clean-css'),
+    flatmap = require('gulp-flatmap'),
+    htmlmin = require('gulp-htmlmin');
 
     // Add Gulp Tasks for SASS and Browser-Sync
 
@@ -14,28 +23,66 @@ var gulp = require('gulp'),
           .pipe(gulp.dest('./css'));
       });
       
-      gulp.task('sass:watch', function () {
+    gulp.task('sass:watch', function () {
         gulp.watch('./css/*.scss', ['sass']);
       });
       
-      gulp.task('browser-sync', function () {
-         var files = [
-            './*.html',
-            './css/*.css',
-            './img/*.{png,jpg,gif}',
-            './js/*.js'
-         ];
+    gulp.task('browser-sync', function () {
+        var files = [
+        './*.html',
+        './css/*.css',
+        './img/*.{png,jpg,gif}',
+        './js/*.js'
+        ];
       
-         browserSync.init(files, {
-            server: {
-               baseDir: "./"
-            }
-         });
-      
+        browserSync.init(files, {
+        server: {
+            baseDir: "./"
+        }
+        });
       });
       
-      // Default task
-      gulp.task('default', ['browser-sync'], function() {
-          gulp.start('sass:watch');
+    // Default task
+    gulp.task('default', ['browser-sync'], function() {
+        gulp.start('sass:watch');
+      });
+
+    // Add the code for the clean task and the copyfonts task 
+    // Clean
+    gulp.task('clean', function() {
+        return del(['dist']);
+    });
+
+    gulp.task('copyfonts', function() {
+        gulp.src('./node_modules/font-awesome/fonts/**/*.{ttf,woff,eof,svg}*')
+        .pipe(gulp.dest('./dist/fonts'));
+    });
+    
+    // Create the imagemin task
+    // Images
+    gulp.task('imagemin', function() {
+        return gulp.src('img/*.{png,jpg,gif}')
+        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(gulp.dest('dist/img'));
+    });
+
+    // Configure the usemin and the build task
+    gulp.task('usemin', function() {
+        return gulp.src('./*.html')
+        .pipe(flatmap(function(stream, file){
+            return stream
+              .pipe(usemin({
+                  css: [ rev() ],
+                  html: [ function() { return htmlmin({ collapseWhitespace: true })} ],
+                  js: [ uglify(), rev() ],
+                  inlinejs: [ uglify() ],
+                  inlinecss: [ cleanCss(), 'concat' ]
+              }))
+          }))
+          .pipe(gulp.dest('dist/'));
+      });
+      
+      gulp.task('build',['clean'], function() {
+          gulp.start('copyfonts','imagemin','usemin');
       });
       
